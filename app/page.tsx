@@ -21,6 +21,7 @@ const ColoredRect = ({
   booked: boolean;
   toggleModal: (slot: SelectedSlot) => void;
 }) => {
+  const router = useRouter();
   const [stageWidth, setStageWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => {
@@ -32,7 +33,11 @@ const ColoredRect = ({
   }, []);
 
   const handleClick = () => {
-    toggleModal({ area, id });
+    if (booked) {
+      router.push(`/parking-detail/${slotIdFor(area, id)}`);
+    } else {
+      toggleModal({ area, id });
+    }
   };
 
   let thisHeight = 20;
