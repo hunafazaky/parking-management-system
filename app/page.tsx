@@ -2,14 +2,9 @@
 import { useState, useEffect } from "react";
 import { Stage, Layer, Rect } from "react-konva";
 // import Konva from "konva";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const ColoredRect = ({
   id,
@@ -72,6 +67,9 @@ export default function App() {
   if (!mounted) return null;
   return (
     <>
+      <div className="flex justify-center items-center absolute inset-0">
+        <h1 className="text-5xl font-bold">Parking Management System</h1>
+      </div>
       <Stage width={window.innerWidth} height={window.innerHeight}>
         <Layer>
           {Array.from({ length: 6 }).map((_, index) => (
@@ -95,10 +93,10 @@ export default function App() {
       {isModalOpened && (
         <div className="w-full bg-mist-700/50 h-full flex absolute inset-0 justify-center items-center">
           <Card className=" w-1/2 h-1/2 rounded-2xl">
-          <CardHeader>
-            <CardTitle>Pilih Parkiran Ini</CardTitle>
-          </CardHeader>
-          <CardContent>
+            <CardHeader>
+              <CardTitle>Pilih Parkiran Ini</CardTitle>
+            </CardHeader>
+            <CardContent>
               <form>
                 <div className="flex flex-col text-gray-950 mb-4 font-bold">
                   <label htmlFor="name">Name</label>
@@ -123,12 +121,10 @@ export default function App() {
                   >
                     Close
                   </Button>
-                  <Button className="px-4 py-1 rounded-lg">
-                    Input
-                  </Button>
+                  <Button className="px-4 py-1 rounded-lg">Input</Button>
                 </div>
               </form>
-          </CardContent>
+            </CardContent>
           </Card>
         </div>
       )}
